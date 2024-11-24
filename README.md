@@ -50,3 +50,9 @@ Suspense is a react component allowing to display a fallback until its children 
   <RevenueChart /> //data is fetched down in the component
 </Suspense>
 ```
+
+### Search and deboucing:
+
+searching is implemented using the URLParams. When input value change, url is updated then page is rerendered and data are refetched.
+
+To avoid too large amount of query debouncing is implemented. Here debouncing make that the url is updated only if the user stop typing keystrokes for more than 300ms. (Game changer)
