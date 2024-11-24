@@ -14,7 +14,7 @@ Furthermore, in production, whenever `<Link>` components appear in the browser's
 
 By connecting your GitHub repository, whenever you push changes to your main branch, Vercel will automatically redeploy your application with no configuration needed.
 
-### Requests waterfall VS Parralel data fetching
+### Requests waterfall VS Parralel data fetching :
 
 #### _Requests waterfall_ :
 
@@ -28,3 +28,25 @@ A common way to avoid waterfalls is to initiate all data requests at the same ti
 
 In JavaScript, you can use the Promise.all() or Promise.allSettled() functions to initiate all promises at the same time.
 However, there is one disadvantage of relying only on this JavaScript pattern: what happens if one data request is slower than all the others?
+
+### Static rendering VS Dynamic rendering :
+
+#### Static rendering :
+
+With static rendering, data fetching and rendering happens on the server at build time. When user refreshes the page no data is refetched. It is usefull for blog articles or other contents generated during the build and that wont change
+
+#### Dynamic rendering :
+
+With dynamic rendering, content is rendered on the server for each user at request time. When user refreshes the page, data is refetched causing an update of the interface. It is usefull for social media's feed user informations or comment sections.
+
+`With dynamic rendering, your application is only as fast as your slowest data fetch.`
+
+### Components that fetches data :
+
+Suspense is a react component allowing to display a fallback until its children have finished loading. This means that `Suspense children have to be async components`.
+
+```ts
+<Suspense fallback={<RevenueChartSkeleton />}>
+  <RevenueChart /> //data is fetched down in the component
+</Suspense>
+```
