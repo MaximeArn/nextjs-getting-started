@@ -2,6 +2,16 @@
 
 ## Key concepts :
 
+### Client components VS server components :
+
+#### Client components :
+
+Client components are rendered in the browser after beeing sent as Javascript code. They are the basic kind of react components. Any component that needs to access brosers APIs such as localstorage or window has to be a client component
+
+#### Server components :
+
+Server components are rendered on the server and sent to the browser as HTML. It means that server components render static code. By default, components in Next.js 13+ are Server Components unless explicitly marked as Client Components.
+
 ### Automatic code-splitting and prefetching :
 
 To improve the navigation experience, Next.js automatically code splits your application by route segments. This is different from a traditional React SPA, where the browser loads all your application code on initial load.
